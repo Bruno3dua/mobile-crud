@@ -11,7 +11,7 @@ export function StackRoutes() {
             screenOptions={{
                 headerTitleAlign: 'center',
                 headerStyle: {
-                    backgroundColor: '#494949',
+                    backgroundColor: '#3E3E3E',
                 },
                 headerTintColor: 'white'
             }}
