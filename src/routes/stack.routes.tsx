@@ -38,6 +38,7 @@ export function StackRoutes() {
                     title: 'Atualizar produto'
                 }}
                 component={Update}
+                initialParams={{ data: {} }}
             />
         </Navigator>
     )

@@ -1,11 +1,11 @@
 import React from 'react';
 import { TextInput, Text, View, StyleSheet } from 'react-native';
 
-export function TextArea({ value }: { value: string }) {
+export function TextArea({ value, label, onChangeText }: { value: string; label: string; onChangeText: (text: string) => void }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>{value}</Text>
-            <TextInput style={styles.input} multiline={true} numberOfLines={4} />
+            <Text style={styles.label}>{label}</Text>
+            <TextInput style={styles.input} multiline={true} numberOfLines={4} onChangeText={onChangeText} value={value} />
         </View>
     );
 }

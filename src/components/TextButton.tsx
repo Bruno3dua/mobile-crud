@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export function TextButton({ value }: { value: string }) {
+export function TextButton({ value, onPress }: { value: string; onPress: () => void }) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Text style={styles.textButton}>{value}</Text>
         </TouchableOpacity>
     );

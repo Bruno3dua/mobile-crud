@@ -1,11 +1,11 @@
 import React from 'react';
-import { TextInput, Text ,View, StyleSheet } from 'react-native';
+import { TextInput, Text, View, StyleSheet } from 'react-native';
 
-export function NumericInput({ value }: { value: string }) {
+export function NumericInput({ value, label, onChangeText }: { value: string; label: string; onChangeText: (text: string) => void }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>{value}</Text>
-            <TextInput style={styles.input} keyboardType='numeric'/>
+            <Text style={styles.label}>{label}</Text>
+            <TextInput style={styles.input} keyboardType='numeric' onChangeText={(text) => onChangeText(text)} value={value} />
         </View>
     );
 }

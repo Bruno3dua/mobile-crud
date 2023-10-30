@@ -1,27 +1,50 @@
 import { IconButton } from './IconButton'
-// import { Container, ButtonWrapper, DataWrapper } from "./styles" todo
-
 import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
+import { api } from '../services/api';
 
-export function ProductContainer() {
+interface Product {
+    id: Number
+    nome: string
+    descricao: string
+    preco: number
+    quantidade: number
+}
+
+type UpdateScreenParams = {
+    data: Product;
+};
+
+export function ProductContainer({ data }: { data: Product }) {
+    const { id, nome, descricao, preco, quantidade } = data;
     const navigation = useNavigation()
 
-    function openUpdate() {
-        navigation.navigate('Update')
+    const deleteProduct = () => {
+        api.delete(`/produtos/${id}`).then((response) => {
+            console.log('Produto excluído com sucesso');
+        })
+            .catch((error) => {
+                console.error('Erro ao excluir o produto', error);
+            });
     }
+
+    function openUpdate() {
+        navigation.navigate('Update', { data })
+    }
+    
+    
     return (
         <View style={styles.container}>
             <View style={styles.buttonWrapper}>
-                <IconButton iconName='edit' onPress={openUpdate}/>
-                <IconButton iconName='delete' onPress={openUpdate}/>
+                <IconButton iconName='edit' onPress={openUpdate} />
+                <IconButton iconName='delete' onPress={deleteProduct} />
             </View>
 
             <View>
-                <Text style={styles.TextH1}>Nome do produto</Text>
-                <Text style={styles.TextP}>Descrição do produto</Text>
-                <Text style={styles.TextH1}>Preço: <Text style={styles.TextGreen}>R$ {'0.00'}</Text></Text>
-                <Text style={styles.TextP}>Em Estoque: {'---'}</Text>
+                <Text style={styles.TextH1}>{nome}</Text>
+                <Text style={styles.TextP}>{descricao}</Text>
+                <Text style={styles.TextH1}>Preço: <Text style={styles.TextGreen}>R$ {preco}</Text></Text>
+                <Text style={styles.TextP}>Em Estoque: {quantidade}</Text>
             </View>
         </View>
     );
