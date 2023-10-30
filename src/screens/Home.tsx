@@ -17,19 +17,6 @@ export function Home() {
     <View style={styles.container}>
       <ScrollView style={styles.productWrapper}>
         <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
-        <ProductContainer />
       </ScrollView>
 
       <AddButton

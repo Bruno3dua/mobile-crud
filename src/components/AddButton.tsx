@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
         right: 30,
         position: 'absolute',
         backgroundColor: '#DF6B00',
-        borderRadius: 9999,
+        borderRadius: 30,
+        borderBottomRightRadius: 10,
         width: 60,
         height: 60,
         alignItems: 'center',
         justifyContent: 'center',
-        elevation: 1
     },
 })

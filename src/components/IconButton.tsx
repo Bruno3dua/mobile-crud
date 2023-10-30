@@ -2,9 +2,9 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
-export function IconButton({iconName}: {iconName: string}) {
+export function IconButton({ iconName, onPress }: { iconName: string; onPress: () => void }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
             <Icon name={iconName} size={30} color="white" />
     </TouchableOpacity>
   );

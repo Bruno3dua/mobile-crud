@@ -34,6 +34,9 @@ export function StackRoutes() {
 
             <Screen
                 name='Update'
+                options={{
+                    title: 'Atualizar produto'
+                }}
                 component={Update}
             />
         </Navigator>
