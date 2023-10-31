@@ -3,7 +3,9 @@ export declare global {
         interface RootParamList {
             Home: undefined
             New: undefined
-            Update: undefined
+            Update: {
+                data: Product
+            }
         }
     }
 }

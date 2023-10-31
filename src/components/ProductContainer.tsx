@@ -11,10 +11,6 @@ interface Product {
     quantidade: number
 }
 
-type UpdateScreenParams = {
-    data: Product;
-};
-
 export function ProductContainer({ data }: { data: Product }) {
     const { id, nome, descricao, preco, quantidade } = data;
     const navigation = useNavigation()
